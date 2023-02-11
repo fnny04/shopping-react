@@ -1,7 +1,7 @@
 <p align="center">
 <h1>Open Project on https://vegetamart.netlify.app/</h1>
   <a href="https://vegetamart.netlify.app/" target="_blank" rel="noopener noreferrer">
-    <img width="180" src="./public/VegetaMart.png" alt="tampilan">
+    <img width="500" src="./public/VegetaMart.png" alt="tampilan">
   </a>
 </p>
 <br/>
