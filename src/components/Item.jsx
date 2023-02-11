@@ -2,17 +2,23 @@ import { useState, useEffect } from "react";
 import Counter from "../components/Counter";
 
 const Card = (props) => {
-  const {
-    item: { name, img, price, value },
-  } = props;
+  const { item, onItemChange } = props;
+  const { name, img, price, value } = item;
   const [itemValue, setItemvalue] = useState(0);
 
   const onAddItems = () => {
     setItemvalue(itemValue + 1);
+    onValueChange(itemValue + 1);
   };
 
   const onRemoveItem = () => {
     setItemvalue(0);
+  };
+
+  const onValueChange = (valueChange) => {
+    const newItem = { ...item };
+    newItem.value = valueChange;
+    onItemChange(newItem);
   };
 
   useEffect(() => {
@@ -26,7 +32,11 @@ const Card = (props) => {
       <p>Rp.{price}</p>
 
       {itemValue > 0 ? (
-        <Counter defaultValue={itemValue} onRemoveItem={onRemoveItem} />
+        <Counter
+          defaultValue={itemValue}
+          onRemoveItem={onRemoveItem}
+          onValueChange={onValueChange}
+        />
       ) : (
         <button
           onClick={onAddItems}

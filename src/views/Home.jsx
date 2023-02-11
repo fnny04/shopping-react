@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { atom, useRecoilState } from "recoil";
 import items from "../dummy/items.json";
 import Navbar from "../components/Navbar";
@@ -12,15 +12,35 @@ const listItemsState = atom({
 
 const Home = () => {
   const [listItems, setListItems] = useRecoilState(listItemsState);
+
+  const [totalItem, setTotalItem] = useState(0);
+  const sumItem = (itemsArray) => {
+    const total = itemsArray.reduce((before, after) => before + after.value, 0);
+    setTotalItem(total);
+  };
+
+  const onItemChange = (itemChange) => {
+    const newArray = listItems.map((item) => {
+      if (item.id === itemChange.id) {
+        return itemChange;
+      } else {
+        return item;
+      }
+    });
+    setListItems(newArray);
+    sumItem(newArray);
+  };
+
   useEffect(() => {
     setListItems(items);
-  }, [setListItems]);
+    sumItem(items);
+  }, []);
 
   return (
     <>
-      <Navbar />
+      <Navbar totalItem={totalItem} />
       <Search />
-      <ListItems items={listItems} />
+      <ListItems items={listItems} onItemChange={onItemChange} />
     </>
   );
 };

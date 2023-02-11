@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function Counter({ defaultValue, onRemoveItem }) {
+export default function Counter({ defaultValue, onRemoveItem, onValueChange }) {
   const [value, setValue] = useState(0);
 
   useEffect(() => {
@@ -13,13 +13,16 @@ export default function Counter({ defaultValue, onRemoveItem }) {
         onRemoveItem();
       }
       setValue(value - 1);
+      onValueChange(value - 1);
     } else {
       setValue(value);
+      onValueChange(value);
     }
   };
 
   const onMaxItem = () => {
     setValue(value + 1);
+    onValueChange(value + 1);
   };
 
   return (
