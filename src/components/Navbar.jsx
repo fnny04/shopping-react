@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Shop from "../assets/shop.png";
+import Counter from "./Counter";
 
 const Navbar = ({ totalItem }) => {
   const [showModal, setShowModals] = useState(false);
@@ -33,6 +34,9 @@ const Navbar = ({ totalItem }) => {
                 <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                   <div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t ">
                     <h3 className="text-3xl font=semibold">Shopping Cart</h3>
+                  </div>
+                  <div className="flex gap-4 py-4">
+                    <Counter />
                   </div>
 
                   <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
