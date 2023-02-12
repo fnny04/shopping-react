@@ -6,7 +6,7 @@ const Navbar = ({ totalItem }) => {
   const [showModal, setShowModals] = useState(false);
 
   return (
-    <nav className="flex justify-between h-30 w-full bg-gradient-to-r from-green-400 to-yellow-300 ">
+    <nav className="sticky flex justify-between h-30 w-screen bg-gradient-to-r from-green-400 to-yellow-300 ">
       <div className="flex justify-center items-center gap-2 p-4">
         <img src="https://img.icons8.com/fluency/48/null/carrot.png" />
         <h1 className="text-white font-bold">VegetaMart</h1>

@@ -26,8 +26,8 @@ const Card = (props) => {
   }, [value]);
 
   return (
-    <div className="h-60 w-60 bg-gray-100 border border-black rounded-md flex items-center flex-col justify-center">
-      <img width={200} src={img} alt="" />
+    <div className="md:h-60 md:w-60 h-30 w-30 bg-gray-100 border border-black rounded-md flex items-center flex-col justify-center">
+      <img width={100} src={img} alt="" />
       <h1 className="font-bold">{name}</h1>
       <p>Rp.{price}</p>
 
